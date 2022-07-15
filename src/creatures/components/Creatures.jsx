@@ -17,7 +17,7 @@ const Creatures = () => {
     getCreatures();
   }, []);
 
-  return <CreaturesList creatures={creatures} />;
+  return creatures && <CreaturesList creatures={creatures} />;
 };
 
 export default Creatures;
