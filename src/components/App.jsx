@@ -1,20 +1,20 @@
 import { Container } from 'react-bootstrap';
 import Creatures from '../creatures/components/Creatures';
+import CreatureProfile from '../creatures/components/CreatureProfile';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navigation from './Navigation';
 
 const App = () => {
   return (
-    <>
-      <header className='container-fluid bg-dark py-5'>
-        <Container>
-          <h1 className='text-center my-5 text-light'>Elden Ring</h1>
-        </Container>
-      </header>
-      <main className='py-3'>
-        <Container>
-          <Creatures />
-        </Container>
-      </main>
-    </>
+    <BrowserRouter>
+      <Navigation />
+      <Container>
+        <Routes>
+          <Route path='/' element={<Creatures />} />
+          <Route path='/creature/:id' element={<CreatureProfile />} />
+        </Routes>
+      </Container>
+    </BrowserRouter>
   );
 };
 
