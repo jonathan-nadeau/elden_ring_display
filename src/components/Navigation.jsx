@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Navbar, NavLink, NavbarBrand, Nav, NavItem, Container } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Container } from 'react-bootstrap';
 
 const Navigation = () => {
   return (
@@ -12,6 +12,11 @@ const Navigation = () => {
           <NavItem>
             <Link to='/' className='text-decoration-none nav-link'>
               Creatures
+            </Link>
+          </NavItem>
+          <NavItem>
+            <Link to='/login' className='text-decoration-none nav-link'>
+              Login
             </Link>
           </NavItem>
         </Nav>

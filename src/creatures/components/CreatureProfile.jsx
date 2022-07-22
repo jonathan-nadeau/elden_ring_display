@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import CreaturesService from '../services/CreaturesService';
 import { useParams } from 'react-router-dom';
 import CreatureHeader from '../../components/CreatureHeader';
@@ -10,22 +10,22 @@ const CreatureProfile = () => {
   const [creature, setCreature] = useState(null);
   const params = useParams();
 
-  const getCreature = async () => {
+  const getCreature = useCallback(async () => {
     if (params.id) {
       const creature = await creaturesService.getCreatureById(params.id);
       setCreature(creature);
     }
-  };
+  }, [params]);
 
   useEffect(() => {
     getCreature();
-  }, [params]);
+  }, [params, getCreature]);
 
   return (
     creature && (
       <>
         <CreatureHeader creature={creature.data} />
-        <CreatureBody creature={creature.data} ></CreatureBody>
+        <CreatureBody creature={creature.data}></CreatureBody>
       </>
     )
   );

@@ -1,6 +1,4 @@
 class CreaturesService {
-  constructor() {}
-
   url = 'https://eldenring.fanapis.com/api/creatures';
 
   async getAllCreatures() {

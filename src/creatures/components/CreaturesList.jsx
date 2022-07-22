@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Creature from './Creature';
 import { Row } from 'react-bootstrap';
 
